@@ -18,14 +18,24 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 include(FetchContent)
 
+# Declare the CLI11 library dependency (Argument Parser).
 FetchContent_Declare(
   cli11
   GIT_REPOSITORY https://github.com/CLIUtils/CLI11.git
   GIT_TAG        v2.4.2
 )
 
-FetchContent_MakeAvailable(cli11)
+# Declare the inipp library dependency (INI Parser/Generator).
+FetchContent_Declare(
+  inipp
+  GIT_REPOSITORY https://github.com/mcmtroffaes/inipp.git
+  GIT_TAG        1.0.12
+)
 
-add_executable(geet src/main.cpp)
+FetchContent_MakeAvailable(cli11 inipp)
+
+add_executable(geet src/main.cpp src/repository.cpp)
 
 target_link_libraries(geet PRIVATE CLI11::CLI11)
+
+target_include_directories(geet PRIVATE ${inipp_SOURCE_DIR}/inipp)
