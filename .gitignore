@@ -29,6 +29,7 @@ geet
 .vscode/
 .idea/
 .cache/
+compile_commands.json
 *.swp
 *.swo
 *~
