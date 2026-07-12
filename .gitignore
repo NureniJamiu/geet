@@ -1,0 +1,35 @@
+# ==============================================
+# Geet Project .gitignore
+# ==============================================
+
+# Learning files - these contain annotated code
+# that I use as reference while typing the real code.
+# They should NOT be committed since they're personal
+# study aids, not part of the actual project.
+*.learn.*
+
+# Agent configuration - project-specific AI assistant
+# rules that help the agent teach me, not part of
+# the codebase itself.
+.agents/
+
+# Study notes - personal chapter-by-chapter notes
+# following the WYAG guide. These are for my learning
+# only, not part of the git clone implementation.
+/notes/
+
+# Build artifacts (for when I start compiling)
+/build/
+*.o
+*.out
+*.exe
+geet
+
+# IDE / Editor files
+.vscode/
+.idea/
+.cache/
+*.swp
+*.swo
+*~
+.DS_Store
