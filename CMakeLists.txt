@@ -32,10 +32,18 @@ FetchContent_Declare(
   GIT_TAG        1.0.12
 )
 
-FetchContent_MakeAvailable(cli11 inipp)
+FetchContent_Declare(
+  picosha2
+  GIT_REPOSITORY https://github.com/okdshin/PicoSHA2.git
+  GIT_TAG        master
+)
 
-add_executable(geet src/main.cpp src/repository.cpp)
+FetchContent_MakeAvailable(cli11 inipp picosha2)
 
-target_link_libraries(geet PRIVATE CLI11::CLI11)
+find_package(ZLIB REQUIRED)
 
-target_include_directories(geet PRIVATE ${inipp_SOURCE_DIR}/inipp)
+add_executable(geet src/main.cpp src/repository.cpp src/object.cpp)
+
+target_link_libraries(geet PRIVATE CLI11::CLI11 ZLIB::ZLIB)
+
+target_include_directories(geet PRIVATE ${inipp_SOURCE_DIR}/inipp ${picosha2_SOURCE_DIR})
