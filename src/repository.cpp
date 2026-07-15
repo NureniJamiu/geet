@@ -1,6 +1,3 @@
-// Get explanation of:
-// RAII (resource acquisition is initialization)
-
 #include "repository.hpp"
 #include <fstream>
 #include <iostream>
